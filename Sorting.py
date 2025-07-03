@@ -81,13 +81,37 @@ def print_list(arr):
         print(i, end=" ")
     print()
 
-# Driver code
-if __name__ == "__main__":
-    arr = [12, 11, 13, 5, 6, 7]
-    print("Given array is")
-    print_list(messy_lst_1)
+#Trying to write merge sort by my hand
 
-    merge_sort((messy_lst_1), 0, len(messy_lst_1) - 1)
+def merge_sort_handmade(lst):
+    if len(lst) > 1:
+        L_side = lst[:len(lst) // 2]
+        R_side = lst[len(lst) //2:]
+        middle = len(lst) // 2
+        
+        merge_sort_handmade(L_side)
+        merge_sort_handmade(R_side)
 
-    print("\nSorted array is")
-    print_list(messy_lst_1)
+        i = j = k = 0
+
+        while i < len(L_side) and j < len(R_side):
+            if L_side[i] < R_side[j]:
+                lst[k] = L_side[i]
+                i += 1
+            else:
+                lst[k] = R_side[j]
+                j += 1
+            k += 1
+        
+        while i < len(L_side):
+            lst[k] = L_side[i]
+            i += 1
+            k += 1
+
+        while j < len(R_side):
+            lst[k] = R_side[j]
+            j += 1
+            k += 1
+    return lst
+
+# print(merge_sort_handmade(messy_lst_3))
