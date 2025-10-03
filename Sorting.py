@@ -115,3 +115,20 @@ def merge_sort_handmade(lst):
     return lst
 
 # print(merge_sort_handmade(messy_lst_3))
+
+# Quick sort
+
+def quick_sort(lst):
+    pivot = lst[len(lst) //2]
+
+    r_side = []
+    l_side = []
+    for i in lst:
+        if i < pivot:
+            l_side.append(i)
+        elif i >= pivot:
+            r_side.append(i)
+    return [l_side, r_side]
+
+print(messy_lst_1)
+print(quick_sort(messy_lst_1))
